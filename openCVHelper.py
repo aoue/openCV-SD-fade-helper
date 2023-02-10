@@ -12,17 +12,10 @@ def detect(filename : str) -> bool:
     # gray = cv2.equalizeHist(gray)
     # cv2.imshow("gray ver", gray)
 
-    accepted = any(list(cascade_1.detectMultiScale(image,
-                                        # detector options
-                                        scaleFactor = 1.1,
-                                        minNeighbors = 5,
-                                        minSize = (24, 24)))) or any(list(cascade_2.detectMultiScale(image,
-                                        # detector options
-                                        scaleFactor = 1.1,
-                                        minNeighbors = 5,
-                                        minSize = (24, 24))))
-
-    if accepted:
+    if list(cascade_1.detectMultiScale(image, scaleFactor = 1.1, minNeighbors = 5, minSize = (24, 24))) or list(cascade_2.detectMultiScale(image,
+        scaleFactor = 1.1,
+        minNeighbors = 5,
+        minSize = (24, 24))):
         """
         for (x, y, w, h) in faces1:
             cv2.rectangle(image, (x, y), (x + w, y + h), (0, 0, 255), 2)

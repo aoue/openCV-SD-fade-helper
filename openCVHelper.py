@@ -4,7 +4,7 @@ import os
 
 def detect(filename : str) -> bool:
     cascade_1 = cv2.CascadeClassifier('lbpcascade_animeface.xml')
-    cascade_2 = cv2.CascadeClassifier('haarcascade_eye.xml')
+    #cascade_2 = cv2.CascadeClassifier('haarcascade_eye.xml')
 
     image = cv2.imread(filename, cv2.IMREAD_COLOR)
 
@@ -12,10 +12,7 @@ def detect(filename : str) -> bool:
     # gray = cv2.equalizeHist(gray)
     # cv2.imshow("gray ver", gray)
 
-    if list(cascade_1.detectMultiScale(image, scaleFactor = 1.1, minNeighbors = 5, minSize = (24, 24))) or list(cascade_2.detectMultiScale(image,
-        scaleFactor = 1.1,
-        minNeighbors = 5,
-        minSize = (24, 24))):
+    if list(cascade_1.detectMultiScale(image, scaleFactor = 1.1, minNeighbors = 5, minSize = (24, 24))): #or list(cascade_2.detectMultiScale(image, scaleFactor = 1.1, minNeighbors = 5, minSize = (24, 24))):
         """
         for (x, y, w, h) in faces1:
             cv2.rectangle(image, (x, y), (x + w, y + h), (0, 0, 255), 2)

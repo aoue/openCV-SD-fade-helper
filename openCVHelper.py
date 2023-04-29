@@ -62,8 +62,8 @@ if __name__ == "__main__":
 
     total = len(os.listdir(directory))
 
-    numProcesses = 8
-    fileSlices = [[] for i in range(0, numProcesses)]   
+    numProcesses = multiprocessing.cpu_count()
+    fileSlices = [[] for i in range(0, numProcesses)]
 
     # assemble all the fileslices
     # len(os.listdir(directory))
